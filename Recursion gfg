@@ -1,0 +1,31 @@
+#include<iostream>
+using namespace std;
+int count = 4,N;
+
+void gonaci(int n3, int n2, int n1){
+    if(N==1) cout<<n1<<"_1";
+    else if (N==2) cout<<n2<<"_2";
+    else if(N==3) cout<<n3<<"_3";
+    else if(count<=N){
+        count++;
+        int temp_three = n3;
+        int temp_two = n2;
+        n3 = n3+n2+n1;
+        n2 = temp_three;
+        n1 = temp_two;
+        gonaci(n3,n2,n1);
+    }    
+    else if(count-1==N) cout<<n3<<endl;
+    return;
+}
+
+int main(){
+    int t, A, B, C;
+    cin>>t;
+    while(t--){
+        cin>>A>>B>>C>>N;
+        count = 4;
+        gonaci(C,B,A);
+    }
+    
+}
